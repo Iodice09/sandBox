@@ -8,11 +8,13 @@ remote_port= 8888
 
 s.connect( (remote_ip,remote_port)  )
 
-msg = input('>> ').strip()
-while (msg != 'end'):
+while True:
 #3. invio messaggio
-    s.sendall(msg.encode())
     msg = input('>> ').strip()
+    s.sendall(msg.encode())
+    if msg == 'end':
+        break
+    
 
 #4. Chiusura del socket
 s.close()

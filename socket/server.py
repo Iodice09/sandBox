@@ -23,10 +23,10 @@ print(f'connessione da {ip_remote}: {port_remote}')
 
 #5. ricezione del messaggio
 while True :
-    msg = conn.recv(4096).strip()
+    msg = conn.recv(4096).strip().decode() #per decodificare e eliminare eventuali spazi
     if msg == 'end' :
         break
-    print (msg.decode())
+    print (msg)
 
 #6. chiusura delle socket
 conn.close()
